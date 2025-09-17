@@ -16,7 +16,6 @@ lite_llm_client = LiteLlm(
 
 
 # --- Tool and Instruction logic ---
-
 product_context_tool = FunctionTool(func=fetch_context)
 
 def get_live_instructions(ctx) -> str:
