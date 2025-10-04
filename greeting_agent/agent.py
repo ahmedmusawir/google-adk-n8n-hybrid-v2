@@ -10,7 +10,8 @@ from google.adk.models.lite_llm import LiteLlm
 # 3. Create the configured LiteLLM client instance
 #    We'll use a powerful default model from OpenRouter.
 lite_llm_client = LiteLlm(
-    model="openrouter/deepseek/deepseek-chat-v3-0324", # 164k context + 671B params
+    # model="openrouter/deepseek/deepseek-chat-v3-0324", # 164k context + 671B params
+    model="openrouter/openai/gpt-5-nano", # 400k context + 671B params
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 

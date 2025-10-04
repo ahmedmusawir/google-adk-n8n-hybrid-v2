@@ -10,7 +10,7 @@ from google.adk.models.lite_llm import LiteLlm
 
 # 2. Create the configured LiteLLM client instance
 lite_llm_client = LiteLlm(
-    model="openrouter/openai/gpt-5-nano",
+    model="openrouter/qwen/qwen-plus-2025-07-28",
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
