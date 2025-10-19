@@ -1,6 +1,5 @@
 # 1. Import the necessary base library and ADK components.
 from google.adk.agents import Agent
-from google.adk.code_executors import BuiltInCodeExecutor
 from utils.gcs_utils import fetch_instructions
 
 # code_executor = BuiltInCodeExecutor()

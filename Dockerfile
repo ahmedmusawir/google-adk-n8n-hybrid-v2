@@ -4,17 +4,17 @@ FROM python:3.11-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file first to leverage Docker's build cache
+# Copy and install dependencies
 COPY requirements.txt .
-
-# Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your application code into the container
+# Copy the application code
 COPY . .
 
-# Tell Cloud Run what command to run, using the $PORT variable it provides
-CMD ["sh", "-c", "adk api_server . --host=0.0.0.0 --port $PORT --session_service_uri='sqlite:///adk_sessions.db'"]
+# Expose the application port
+# EXPOSE 8000
 
-# Use adk web instead of adk api_server!
-# CMD ["sh", "-c", "adk web --port $PORT"]
+# Command to run the ADK API server using the "shell form".
+# This allows the shell to correctly substitute ${PORT} and ${DB_URI}
+# with the values provided by Cloud Run before the command is executed.
+CMD adk api_server . --host=0.0.0.0 --port=${PORT} --session_service_uri=${DB_URI}
